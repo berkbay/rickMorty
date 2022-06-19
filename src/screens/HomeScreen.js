@@ -36,7 +36,7 @@ const HomeScreen = ({navigation, route}) => {
                             />
                         }
                         keyExtractor={(item, index) => index.toString()}
-                        ListFooterComponent={
+                        ListEmptyComponent={
                             <EmptyListComponent
                                 error={error}
                                 image={require('../../assets/img/rick-sad.jpeg')}

@@ -36,12 +36,6 @@ const DetailScreen = ({navigation, route}) => {
                                     />
                                 }
                                 keyExtractor={(item, index) => index.toString()}
-                                ListFooterComponent={
-                                    <EmptyListComponent
-                                        error={error}
-                                        image={require('../../assets/img/rick-sad.jpeg')}
-                                    />
-                                }
                                 ItemSeparatorComponent={() => <SeparatorItem color={'grey'}/>}
                             />
                         </View>
