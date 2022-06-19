@@ -10,9 +10,9 @@ const Stack = createNativeStackNavigator();
 function MainStackNavigation() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Profile">
-                <Stack.Screen name="Anasayfa" component={HomeScreen}/>
-                <Stack.Screen name="Bölüm Detayı" component={DetailScreen} />
+            <Stack.Navigator initialRouteName="Profile" screenOptions={{headerShown: false}}>
+                <Stack.Screen name="Home" component={HomeScreen}/>
+                <Stack.Screen name="Detail" component={DetailScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
