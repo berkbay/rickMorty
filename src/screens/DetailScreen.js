@@ -1,11 +1,12 @@
 import React, {useEffect} from "react";
-import {Text, SafeAreaView, View, Image} from "react-native";
+import {Text, SafeAreaView, View, Image, FlatList} from "react-native";
 import CustomHeader from "../components/CustomHeader";
 import {useDispatch, useSelector} from "react-redux";
 import {getEpisodeDetail} from "../store/actions/EpisodeAction";
 import Loading from "../components/Loading";
 import EmptyListComponent from "../components/EmptyListComponent";
-import {getCharacter} from "../store/actions/CharacterAction";
+import CharacterListItem from "../components/CharacterListItem";
+import SeparatorItem from "../components/SeparatorItem";
 
 const DetailScreen = ({navigation, route}) => {
 
@@ -26,6 +27,23 @@ const DetailScreen = ({navigation, route}) => {
                         <View style={{flex:1, alignItems:'center'}}>
                             <CustomHeader navigation={navigation} name={episodeData.name}/>
                             <Image source={require('../../assets/img/rick-and-morty-avatar.jpeg')}/>
+                            <FlatList
+                                data={episodeData.characters}
+                                renderItem={({item, index}) =>
+                                    <CharacterListItem
+                                        item={item}
+                                        navigation={navigation}
+                                    />
+                                }
+                                keyExtractor={(item, index) => index.toString()}
+                                ListFooterComponent={
+                                    <EmptyListComponent
+                                        error={error}
+                                        image={require('../../assets/img/rick-sad.jpeg')}
+                                    />
+                                }
+                                ItemSeparatorComponent={() => <SeparatorItem color={'grey'}/>}
+                            />
                         </View>
                     }
                 </View>
