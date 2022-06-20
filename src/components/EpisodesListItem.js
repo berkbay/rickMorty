@@ -1,6 +1,6 @@
 import {Image, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
-import {styles} from "./componentsStyles";
+import {styles} from "./Styles";
 import {MaterialIcons} from "@expo/vector-icons";
 import NextButton from "./NextButton";
 
@@ -21,7 +21,7 @@ const EpisodesListItem = ({item, navigation}) => {
                 </View>
             </View>
             </View>
-            <NextButton nextPage={'Detail'} navigation={navigation} params={item.url}/>
+            <NextButton nextPage={'EpisodeDetail'} navigation={navigation} params={item.url}/>
         </View>
     );
 }

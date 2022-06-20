@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import {View, SafeAreaView, ScrollView, Text, FlatList, Image, Dimensions, ImageBackground} from "react-native";
 import {useDispatch, useSelector} from "react-redux";
 import {useRoute} from "@react-navigation/native";
 import {useEffect} from "react";
-import {getEpisodes} from "../store/actions/EpisodeAction";
+import {getEpisodeDetail, getEpisodes} from "../store/actions/EpisodeAction";
 import CustomHeader from "../components/CustomHeader";
 import Loading from "../components/Loading";
 import EpisodesListItem from "../components/EpisodesListItem";
@@ -20,6 +20,10 @@ const HomeScreen = ({navigation, route}) => {
         dispatch(getEpisodes())
     },[])
 
+    const onRefresh = useCallback(() => {
+        dispatch(getEpisodes())
+    },[])
+
     const {loading, data, error} = useSelector(state => state.episodes)
 
     return (
@@ -28,6 +32,7 @@ const HomeScreen = ({navigation, route}) => {
                 <View style={{flex:1}}>
                     <CustomHeader navigation={navigation} name={'Bölümler'}/>
                     <FlatList
+                        showsVerticalScrollIndicator={false}
                         data={data.results}
                         renderItem={({item, index}) =>
                             <EpisodesListItem
@@ -43,6 +48,8 @@ const HomeScreen = ({navigation, route}) => {
                             />
                         }
                         ItemSeparatorComponent={() => <SeparatorItem color={'grey'}/>}
+                        onRefresh={() => onRefresh()}
+                        refreshing={loading}
                     />
                 </View>
             }

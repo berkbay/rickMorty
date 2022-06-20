@@ -1,30 +1,32 @@
 import {Image, Text, TouchableOpacity, View} from "react-native";
-import React, {useEffect} from "react";
-import {styles} from "./componentsStyles";
+import React, {useEffect, useState} from "react";
+import {styles} from "./Styles";
 import NextButton from "./NextButton";
+import axios from "axios";
 
 const CharacterListItem = ({item, navigation}) => {
+    const [character, setCharacter] = useState([])
 
-    // useEffect(() => {
-    //
-    // },[])
+    useEffect(() => {
+        axios.get(item).then(res => {
+            setCharacter(res.data)
+        })
+    },[item])
+
     return(
-        <View style={styles.listItemContainer}>
+        <View style={[styles.listItemContainer]}>
             <View style={{flexDirection:'row'}}>
                 <Image
-                    source={require('../../assets/img/rick-and-morty-avatar.jpeg')}
+                    source={{uri: character.image}}
                     resizeMode='contain'
                     style={styles.listItemImageStyle}
                 />
                 <View style={styles.listItemInfoContainer}>
-                    <Text style={styles.listItemInfoTitleText}>1</Text>
-                    <View style={{flexDirection:'row'}}>
-                        <Text style={styles.listItemInfoText}>2</Text>
-                        <Text style={styles.listItemInfoText}>3</Text>
-                    </View>
+                    <Text style={styles.listItemInfoTitleText}>{character.name}</Text>
+                    <Text style={styles.listItemInfoText}>{character.species}</Text>
                 </View>
             </View>
-            <NextButton nextPage={'Detail'} navigation={navigation} params={item.url}/>
+            <NextButton nextPage={'CharacterDetail'} navigation={navigation} params={character.url}/>
         </View>
     );
 }

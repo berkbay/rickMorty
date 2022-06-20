@@ -1,6 +1,6 @@
 import {Image, Text, View} from "react-native";
 import React from "react";
-import {styles} from "./componentsStyles";
+import {styles} from "./Styles";
 
 const EmptyListComponent = ({image, error}) => {
     return(

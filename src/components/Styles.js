@@ -60,4 +60,19 @@ export const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center'
     },
+
+    //Character Detail
+    characterItemTextsContainer: {
+        flexDirection:'row',
+        marginVertical:3,
+        justifyContent: 'space-between'
+    },
+    characterItemTypeText: {
+        fontSize:16,
+        fontWeight:'700'
+    },
+    characterItemInfoText: {
+        fontSize:16,
+        fontWeight:'400'
+    },
 })
