@@ -32,8 +32,6 @@ const CharacterDetailScreen = ({navigation, route,}) => {
         getCharacterDetail()
     },[route.params])
 
-    console.log('CHARACTER', characterDetail)
-
     return (
         <SafeAreaView style={{flex:1}}>
             {loading === true ? <Loading/> :
