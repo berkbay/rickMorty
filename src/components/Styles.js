@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     customHeaderText: {
         textAlign: 'center',
         fontWeight: '700',
-        fontSize:24
+        fontSize:20
     },
 
     // Episodes List Item
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
         marginHorizontal:10
     },
     listItemInfoTitleText: {
-        fontSize:18,
+        fontSize:16,
         fontWeight:'700'
     },
     listItemInfoText: {

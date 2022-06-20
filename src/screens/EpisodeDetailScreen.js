@@ -11,7 +11,7 @@ import SeparatorItem from "../components/SeparatorItem";
 const EpisodeDetailScreen = ({navigation, route}) => {
 
     const dispatch = useDispatch()
-    const episode = route.params.slice(-1)
+    const episode = route.params.slice(-2)
 
     useEffect(() => {
         dispatch(getEpisodeDetail(episode))
@@ -27,9 +27,9 @@ const EpisodeDetailScreen = ({navigation, route}) => {
         <SafeAreaView style={{flex:1}}>
             {episodeLoading === true ? <Loading/> :
                 <View style={{flex:1}}>
+                    <CustomHeader navigation={navigation} name={`${episodeData.name} - ${episodeData.episode}`}/>
                     {episodeError !== '' ? <EmptyListComponent error={episodeError}/> :
                         <View style={{flex:1}}>
-                            <CustomHeader navigation={navigation} name={`${episodeData.name} - ${episodeData.episode}`}/>
                             <View style={{alignItems:'center'}}>
                                 <Image source={require('../../assets/img/rick-and-morty-avatar.jpeg')}/>
                                 <Text style={{marginVertical:20, fontWeight:'700', fontSize:20}}>Characters</Text>
