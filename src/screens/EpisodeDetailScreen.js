@@ -32,7 +32,7 @@ const EpisodeDetailScreen = ({navigation, route}) => {
                             <CustomHeader navigation={navigation} name={`${episodeData.name} - ${episodeData.episode}`}/>
                             <View style={{alignItems:'center'}}>
                                 <Image source={require('../../assets/img/rick-and-morty-avatar.jpeg')}/>
-                                <Text style={{marginTop:20, fontWeight:'700', fontSize:20}}>Characters</Text>
+                                <Text style={{marginVertical:20, fontWeight:'700', fontSize:20}}>Characters</Text>
                             </View>
                             <View style={{flex:1}}>
                                 <FlatList

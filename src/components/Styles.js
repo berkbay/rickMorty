@@ -28,8 +28,7 @@ export const styles = StyleSheet.create({
         borderRadius:10
     },
     listItemInfoContainer: {
-        justifyContent:'space-between',
-        marginVertical:10,
+        justifyContent:'space-evenly',
         marginHorizontal:10
     },
     listItemInfoTitleText: {

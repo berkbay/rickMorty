@@ -6,14 +6,14 @@ import NextButton from "./NextButton";
 
 const EpisodesListItem = ({item, navigation}) => {
     return(
-        <View style={styles.listItemContainer}>
-            <View style={{flexDirection:'row'}}>
+        <View style={[styles.listItemContainer, {flex:1}]}>
+            <View style={{flexDirection:'row', flex:1}}>
                 <Image
                     source={require('../../assets/img/rick-and-morty-avatar.jpeg')}
                     resizeMode='contain'
                     style={styles.listItemImageStyle}
                 />
-            <View style={styles.listItemInfoContainer}>
+            <View style={[styles.listItemInfoContainer,{flex:1}]}>
                 <Text style={styles.listItemInfoTitleText}>{item.name}</Text>
                 <View style={{flexDirection:'row'}}>
                     <Text style={styles.listItemInfoText}>{item.episode} / </Text>

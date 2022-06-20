@@ -30,7 +30,7 @@ const HomeScreen = ({navigation, route}) => {
         <SafeAreaView style={{flex:1}}>
             {loading === true ? <Loading/> :
                 <View style={{flex:1}}>
-                    <CustomHeader navigation={navigation} name={'Bölümler'}/>
+                    <CustomHeader navigation={navigation} name={'Bölümler'} route={route.name}/>
                     <FlatList
                         showsVerticalScrollIndicator={false}
                         data={data.results}

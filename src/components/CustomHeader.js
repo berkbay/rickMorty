@@ -3,10 +3,10 @@ import {styles} from "./Styles";
 import {MaterialIcons} from "@expo/vector-icons";
 
 
-const CustomHeader = ({navigation, name}) => {
+const CustomHeader = ({navigation, name, route}) => {
     return(
         <View style={styles.customHeaderView}>
-            {name === 'Anasayfa' ? <View/> :
+            {route === 'Home' ? <View style={{flex:1, paddingHorizontal:10}}/> :
             <TouchableOpacity
                 style={{flex:1, paddingHorizontal:10}}
                 onPress={() => {
